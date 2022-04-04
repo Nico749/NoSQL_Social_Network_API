@@ -28,6 +28,12 @@ const thoughtSchema = new Schema(
   }
 );
 
+
+// Create a virtual property `commentCount` that gets the amount of comments per post
+thoughtSchema.virtual('reactionCount').get(function () {
+  return this.reactions.length;
+});
+
 const Thought = model('thought', thoughtSchema);
 
 module.exports = Thought;
