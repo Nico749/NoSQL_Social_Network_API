@@ -51,9 +51,9 @@ module.exports = {
         // .then((course) =>
         //   !course
         //     ? res.status(404).json({
-        //         message: 'Student deleted, but no courses found',
+        //         message: 'User deleted, but no courses found',
         //       })
-        //     : res.json({ message: 'Student successfully deleted' })
+        //     : res.json({ message: 'User successfully deleted' })
         // )
         // .catch((err) => {
         //   console.log(err);
@@ -61,7 +61,7 @@ module.exports = {
         // });
     },
   
-    // Add an assignment to a user
+    // Add an thought to a user
     addThought(req, res) {
       console.log('You are adding a thought');
       console.log(req.body);
@@ -75,6 +75,24 @@ module.exports = {
             ? res
                 .status(404)
                 .json({ message: 'No user found with that ID :(' })
+            : res.json(user)
+        )
+        .catch((err) => res.status(500).json(err));
+    },
+
+    addThought(req, res) {
+      console.log('You are adding a new thought');
+      console.log(req.body);
+      User.findOneAndUpdate(
+        { _id: req.params.userId },
+        { $addToSet: { assignments: req.body } },
+        { runValidators: true, new: true }
+      )
+        .then((user) =>
+          !user
+            ? res
+                .status(404)
+                .json({ message: 'No user found with that ID ' })
             : res.json(user)
         )
         .catch((err) => res.status(500).json(err));

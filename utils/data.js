@@ -58,11 +58,11 @@ const names = [
   ];
   
   const thoughtDesc = [
-    'Decision Tracker',
+    'Beautiful day...',
     'Find My Phone',
     'Learn Piano',
-    'Starbase Defender',
-    'Tower Defense',
+    'Buying a new car',
+    'Check house..',
     'Monopoly Money Manager',
     'Movie trailers',
     'Hello world',
@@ -71,7 +71,7 @@ const names = [
     'Messages',
     'Email',
     'Compass',
-    'Firefox',
+    'Bike not working...',
     'Running app',
     'Cooking app',
     'Poker',
@@ -90,7 +90,7 @@ const names = [
     const results = [];
     for (let i = 0; i < int; i++) {
       results.push({
-        thoughtName: getRandomArrItem(thoughtDesc),
+        thoughtDesc: getRandomArrItem(thoughtDesc),
         //score: Math.floor(Math.random() * (99 - 70 + 1) + 70),
       });
     }

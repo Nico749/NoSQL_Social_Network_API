@@ -8,7 +8,7 @@ connection.once('open', async () => {
   console.log('connected');
 
   // Drop existing thoughts
-//  await Thought.deleteMany({});
+await Thought.deleteMany({});
 
   // Drop existing users
   await User.deleteMany({});
