@@ -25,7 +25,7 @@ module.exports = {
             ? res.status(404).json({ message: 'No user with that ID' })
             : res.json({
                 user,
-                grade: await grade(req.params.userId),
+                //grade: await grade(req.params.userId),
               })
         )
         .catch((err) => {
@@ -42,14 +42,11 @@ module.exports = {
     // Delete a user and remove them from the course
     deleteUser(req, res) {
       User.findOneAndRemove({ _id: req.params.userId })
-        .then((user) =>
-          !user
-            ? res.status(404).json({ message: 'No such user exists' })
-            : Course.findOneAndUpdate(
-                { students: req.params.studentId },
-                { $pull: { students: req.params.studentId } },
-                { new: true }
-              )
+      .then((user) =>
+      !user
+        ? res.status(404).json({ message: 'No such user exists' })
+        : res.status(200).json({message:  "User removed"})
+            
         )
         // .then((course) =>
         //   !course
