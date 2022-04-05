@@ -85,13 +85,13 @@ const names = [
   const getRandomName = () =>
     `${getRandomArrItem(names)} ${getRandomArrItem(names)}`;
   
-  // Function to generate random assignments that we can add to student object.
+  // Function to generate random thoughts that we can add to user object.
   const getRandomThought = (int) => {
     const results = [];
     for (let i = 0; i < int; i++) {
       results.push({
-        assignmentName: getRandomArrItem(thoughtDesc),
-        score: Math.floor(Math.random() * (99 - 70 + 1) + 70),
+        thoughtName: getRandomArrItem(thoughtDesc),
+        //score: Math.floor(Math.random() * (99 - 70 + 1) + 70),
       });
     }
     return results;
