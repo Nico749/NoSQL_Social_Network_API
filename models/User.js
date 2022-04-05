@@ -1,4 +1,7 @@
-const { Schema, model } = require('mongoose');
+const { Schema } = require('mongoose');
+const {model} = require('mongoose')
+const thoughtSchema = require('./Thought')
+const reactionSchema = require('./Reaction')
 
 // Schema to create User model
 const userSchema = new Schema(
@@ -9,6 +12,7 @@ const userSchema = new Schema(
       unique: true,
       trim: true
     },
+    thoughts: {type:[String]},
     email: {
       type: String,
       required: true,
@@ -23,7 +27,7 @@ const userSchema = new Schema(
       match: [/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, 'Please fill a valid email address']
     },
     
-    thoughts: [thoughtSchema],
+    
     friends: [this]
   },
   {

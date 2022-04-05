@@ -4,20 +4,16 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index",
+    "dev": "nodemon index",
+    "seed": "node utils/seed"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Nico749/NoSQL_Social_Network_API.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Nico749/NoSQL_Social_Network_API/issues"
-  },
-  "homepage": "https://github.com/Nico749/NoSQL_Social_Network_API#readme",
+  
   "dependencies": {
     "express": "^4.17.3",
     "mongoose": "^6.2.9"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
   }
 }
