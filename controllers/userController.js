@@ -39,6 +39,21 @@ module.exports = {
         .then((user) => res.json(user))
         .catch((err) => res.status(500).json(err));
     },
+    
+    updateUser(req, res) {
+      User.findOneAndUpdate(
+        { _id: req.params.userId },
+        { $set: req.body },
+        { runValidators: true, new: true }
+      )
+        .then((user) =>
+          !user
+            ? res.status(404).json({ message: 'No user with this id!' })
+            : res.json(user)
+        )
+        .catch((err) => res.status(500).json(err));
+    },
+    
     // Delete a user and remove them from the course
     deleteUser(req, res) {
       User.findOneAndRemove({ _id: req.params.userId })
@@ -61,9 +76,9 @@ module.exports = {
         // });
     },
   
-    // Add an thought to a user
+    // Add an user to a user
     addThought(req, res) {
-      console.log('You are adding a thought');
+      console.log('You are adding a user');
       console.log(req.body);
       User.findOneAndUpdate(
         { _id: req.params.userId },
@@ -79,9 +94,9 @@ module.exports = {
         )
         .catch((err) => res.status(500).json(err));
     },
-
-    addThought(req, res) {
-      console.log('You are adding a new thought');
+//add friend to an existing user 
+    addFriend(req, res) {
+      console.log('You are adding a new friend');
       console.log(req.body);
       User.findOneAndUpdate(
         { _id: req.params.userId },
