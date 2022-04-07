@@ -18,12 +18,12 @@ router.route('/:userId').get(getSingleUser).delete(deleteUser).put(updateUser);
 
 
 // /api/users/userId/thought
-router.route(':userId/thought').post(addThought);
+router.route('/:userId/thought').post(addThought);
 
-//api/users/:userId/friends/:friendId
-router.route(':userId/friends/:friendId').post(addFriend).delete(deleteFriend)
+//api/users/:userId/friends/
+router.route('/:userId/friends').put(addFriend)
 
-
+router.route('/:userId/friends/:friendId').delete(deleteFriend)
 
 
 module.exports = router;

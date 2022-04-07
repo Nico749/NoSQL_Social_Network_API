@@ -100,7 +100,7 @@ module.exports = {
       console.log(req.body);
       User.findOneAndUpdate(
         { _id: req.params.userId },
-        { $addToSet: { assignments: req.body } },
+        { $addToSet: { friends: req.body } },
         { runValidators: true, new: true }
       )
         .then((user) =>
@@ -115,7 +115,7 @@ module.exports = {
     // Remove friend from a user
   deleteFriend(req, res) {
     User.findOneAndUpdate(
-      { _id: req.params.studentId },
+      { _id: req.params.userId },
       { $pull: { friend: { friendId: req.params.assignmentId } } },
       { runValidators: true, new: true }
     )

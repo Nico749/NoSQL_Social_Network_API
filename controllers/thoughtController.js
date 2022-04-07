@@ -61,29 +61,33 @@ module.exports = {
       { $addToSet: { reactions: req.body } },
       { runValidators: true, new: true }
     )
-      .then((user) =>
-        !user
+      .then((thought) =>
+        !thought
           ? res
               .status(404)
               .json({ message: 'No user found with that ID :(' })
-          : res.json(user)
+          : res.json(thought)
       )
       .catch((err) => res.status(500).json(err));
   },
   // Remove assignment from a student
   removeReaction(req, res) {
+    console.log("you are removing a reaction")
+    console.log(req.body);
     Thought.findOneAndUpdate(
-      { _id: req.params.userId },
+      { _id: req.params.thoughtId },
       { $pull: { reaction: { reactionId: req.params.reactionId } } },
+    
       { runValidators: true, new: true }
     )
-      .then((user) =>
-        !user
+      .then((thought) =>{  
+      console.log("this is the id of the reaction", req.params.reactionId)
+      console.log("this is the id of the thought",req.params.thoughtId)
           ? res
               .status(404)
-              .json({ message: 'No user found with that ID :(' })
-          : res.json(user)
-      )
+              .json({ message: 'No thought found with that ID :(' })
+          : res.json(thought)
+      })
       .catch((err) => res.status(500).json(err));
   },
 };
