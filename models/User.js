@@ -1,7 +1,7 @@
 const { Schema } = require('mongoose');
-const {model} = require('mongoose')
-const thoughtSchema = require('./Thought')
-const reactionSchema = require('./Reaction')
+const { model } = require('mongoose')
+//const thoughtSchema = require('./Thought')
+//const reactionSchema = require('./Reaction')
 
 // Schema to create User model
 const userSchema = new Schema(
@@ -12,31 +12,31 @@ const userSchema = new Schema(
       unique: true,
       trim: true
     },
-    thoughts:[
+    thoughts: [
       {
-          type: Schema.Types.ObjectId,
-          ref: 'Thought'
+        type: Schema.Types.ObjectId,
+        ref: 'Thought'
       },
-  ],
+    ],
     email: {
       type: String,
       required: true,
       unique: true,
       validate: {
-        validator: function(email) {
-            var re = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-            return re.test(email)
+        validator: function (email) {
+          var re = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+          return re.test(email)
         },
         message: mail => `${mail.value} is not a valid mail!`
       },
       match: [/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, 'Please fill a valid email address']
     },
-    
-    
+
+
     friends: [
       {
-          type: Schema.Types.ObjectId,
-          ref: 'User'
+        type: Schema.Types.ObjectId,
+        ref: 'User'
       },]
   },
   {

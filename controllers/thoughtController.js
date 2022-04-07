@@ -1,5 +1,5 @@
 const { Thought, User } = require('../models');
-const {reactionSchema} = require('../models/Reaction')
+//const { reactionSchema } = require('../models/Reaction')
 
 module.exports = {
   // Get all thoughts
@@ -64,30 +64,30 @@ module.exports = {
       .then((thought) =>
         !thought
           ? res
-              .status(404)
-              .json({ message: 'No user found with that ID :(' })
+            .status(404)
+            .json({ message: 'No user found with that ID :(' })
           : res.json(thought)
       )
       .catch((err) => res.status(500).json(err));
   },
   // Remove assignment from a student
   removeReaction(req, res) {
-    console.log("you are removing a reaction")
-    console.log(req.body);
+    //console.log("you are removing a reaction")
+    //console.log(req.body);
     Thought.findOneAndUpdate(
       { _id: req.params.thoughtId },
       { $pull: { reaction: { reactionId: req.params.reactionId } } },
-    
+
       { runValidators: true, new: true }
     )
-      .then((thought) =>{  
-      console.log("this is the id of the reaction", req.params.reactionId)
-      console.log("this is the id of the thought",req.params.thoughtId)
-          ? res
-              .status(404)
-              .json({ message: 'No thought found with that ID :(' })
-          : res.json(thought)
-      })
+      .then((thought) => (res)
+        //console.log("this is the id of the reaction", req.params.reactionId)
+        //console.log("this is the id of the thought",req.params.thoughtId)
+        ? res
+          .status(404)
+          .json({ message: 'No thought found with that ID :(' })
+        : res.json(thought)
+      )
       .catch((err) => res.status(500).json(err));
   },
 };
