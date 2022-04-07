@@ -23,7 +23,7 @@ Project is created with:
 
 ## Working Application
 
-Click [here](https://drive.google.com/file/d/1znFYVCHZQ4o0pIlRcyTueBONFxQx8Bb4/view) for a short walkthrough video of the users routes and [here](https://drive.google.com/file/d/1lIjhD9qt_YG7R5_4ghz-2gwr55aa2N9Y/view) for the thought ones.
+Click [here](https://drive.google.com/file/d/1gp8UfPN0vEiGJgLDqVXeN95IwvWOdOLq/view) for a short walkthrough video of the users routes and [here](https://drive.google.com/file/d/1lIjhD9qt_YG7R5_4ghz-2gwr55aa2N9Y/view) for the thought ones.
 
 
 ## Project Status
@@ -33,8 +33,7 @@ Click [here](https://drive.google.com/file/d/1znFYVCHZQ4o0pIlRcyTueBONFxQx8Bb4/v
 ## Room for Improvement
 
 Room for improvement:
-* Removing a reaction not working
-* add and remove a friend
+* Fix bug itno removing a reaction and a friend functions
 
 ## Installation
 
