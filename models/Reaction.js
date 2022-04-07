@@ -9,10 +9,11 @@ const reactionSchema = new Schema(
     reactionBody: {
       type: String,
       required: true,
-      maxlength: 280
+      maxlength: 280,
+      default: 'Empty body'
     },
     username: {
-      type: Number,
+      type: String,
       required: true
     },
     createdAt: {

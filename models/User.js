@@ -12,7 +12,12 @@ const userSchema = new Schema(
       unique: true,
       trim: true
     },
-    thoughts:{type: String},
+    thoughts:[
+      {
+          type: Schema.Types.ObjectId,
+          ref: 'Thought'
+      },
+  ],
     email: {
       type: String,
       required: true,
@@ -28,7 +33,11 @@ const userSchema = new Schema(
     },
     
     
-    friends: [this]
+    friends: [
+      {
+          type: Schema.Types.ObjectId,
+          ref: 'User'
+      },]
   },
   {
     toJSON: {
