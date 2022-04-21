@@ -4,7 +4,6 @@
 * [Technologies](#technologies)
 * [Working Application](#working-application)
 * [Project Status](#project-status)
-* [Room for Improvement](#room-for-improvement)
 * [Installation](#installation)
 * [License](#license)
 * [Contact Me](#contact-me)
@@ -30,10 +29,6 @@ Click [here](https://drive.google.com/file/d/1gp8UfPN0vEiGJgLDqVXeN95IwvWOdOLq/v
 
 * Working
 
-## Room for Improvement
-
-Room for improvement:
-* Fix bug itno removing a reaction and a friend functions
 
 ## Installation
 

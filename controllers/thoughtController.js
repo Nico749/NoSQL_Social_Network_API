@@ -70,13 +70,13 @@ module.exports = {
       )
       .catch((err) => res.status(500).json(err));
   },
-  // Remove assignment from a student
+  // Remove reaction
   removeReaction(req, res) {
     //console.log("you are removing a reaction")
     //console.log(req.body);
     Thought.findOneAndUpdate(
       { _id: req.params.thoughtId },
-      { $pull: { reaction: { reactionId: req.params.reactionId } } },
+      { $pull: { reaction: req.params.reactionId } },
 
       { runValidators: true, new: true }
     )
